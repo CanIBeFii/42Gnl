@@ -6,36 +6,36 @@
 /*   By: filipe <filipe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:14:40 by filipe            #+#    #+#             */
-/*   Updated: 2022/12/21 16:47:41 by filipe           ###   ########.fr       */
+/*   Updated: 2022/12/21 17:19:19 by filipe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_findchar(char *str, char c)
+int	ft_findchar(char *string, char c)
 {
 	int	index;
 	
-	if (str == NULL)
+	if (string == NULL)
 		return (-1);
 	index = 0;
-	while (str[index] != '\0')
+	while (string[index] != '\0')
 	{
-		if (str[index] == c)
+		if (string[index] == c)
 			return (index + 1);
 		index++;
 	}
 	return (-1);
 }
 
-int	ft_strlen(char *str)
+int	ft_strlen(char *string)
 {
 	int	i;
 
 	i = 0;
-	if (str == NULL)
+	if (string == NULL)
 		return (0);
-	while (str[i] != '\0')
+	while (string[i] != '\0')
 		i++;
 	return (i);
 }
