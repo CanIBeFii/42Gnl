@@ -6,7 +6,7 @@
 /*   By: filipe <filipe@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:14:40 by filipe            #+#    #+#             */
-/*   Updated: 2022/12/21 12:45:38 by filipe           ###   ########.fr       */
+/*   Updated: 2022/12/21 16:47:41 by filipe           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	*ft_strjoin(char *s1, char *s2)
 
 char	*ft_strdup(char *s)
 {
-	char	*str;
+	char	*string;
 	int	index;
 	int	size;
 	
@@ -77,7 +77,42 @@ char	*ft_strdup(char *s)
 	size = ft_strlen(s);
 	if (size == 0)
 		return (NULL);
-	str = malloc(sizeof(char) * (size + 1));
-	if (str == NULL)
+	string = malloc(sizeof(char) * (size + 1));
+	if (string == NULL)
 		return (NULL);
+	if (s[0] == '\0')
+		return (NULL);
+	while (s[index] != '\0')
+	{
+		string[index] = s[index];
+		index++;
+	}
+	string[index] = '\0';
+	return (string);
+}
+
+char	*ft_substr(char *string, int start, int length)
+{
+	char	*sub_string;
+	int	index;
+	int	string_length;
+	
+	index = 0;
+	string_length = ft_strlen(string);
+	if (string_length < length)
+		sub_string = malloc(sizeof(char) * (string_length + 1));
+	else if (start > string_length)
+		sub_string = malloc(sizeof(char));
+	else
+		sub_string = malloc(sizeof(char) * (length +1));
+	if (sub_string == NULL)
+		return (NULL);
+	while (string[start] && index < length && start < string_length)
+	{
+		sub_string[index] = string[start];
+		start++;
+		index++;
+	}
+	sub_string[index] = '\0';
+	return (sub_string);
 }
