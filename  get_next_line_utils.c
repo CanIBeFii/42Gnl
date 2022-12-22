@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*    get_next_line_utils.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: filipe <filipe@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fialexan <fialexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:14:40 by filipe            #+#    #+#             */
-/*   Updated: 2022/12/21 17:19:19 by filipe           ###   ########.fr       */
+/*   Updated: 2022/12/22 10:32:13 by fialexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_findchar(char *string, char c)
 {
 	int	index;
-	
+
 	if (string == NULL)
 		return (-1);
 	index = 0;
@@ -42,10 +42,10 @@ int	ft_strlen(char *string)
 
 char	*ft_strjoin(char *s1, char *s2)
 {
+	int		i1;
+	int		i2;
 	char	*str;
-	int	i1;
-	int	i2;
-	
+
 	if (s1 == NULL && s2 == NULL)
 		return (NULL);
 	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_Strlen(s2) + 1));
@@ -69,10 +69,10 @@ char	*ft_strjoin(char *s1, char *s2)
 
 char	*ft_strdup(char *s)
 {
+	int		index;
+	int		size;
 	char	*string;
-	int	index;
-	int	size;
-	
+
 	index = 0;
 	size = ft_strlen(s);
 	if (size == 0)
@@ -93,10 +93,10 @@ char	*ft_strdup(char *s)
 
 char	*ft_substr(char *string, int start, int length)
 {
+	int		index;
+	int		string_length;
 	char	*sub_string;
-	int	index;
-	int	string_length;
-	
+
 	index = 0;
 	string_length = ft_strlen(string);
 	if (string_length < length)
