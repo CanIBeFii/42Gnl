@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    get_next_line_utils.c                             :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fialexan <fialexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:14:40 by filipe            #+#    #+#             */
-/*   Updated: 2022/12/22 11:23:28 by fialexan         ###   ########.fr       */
+/*   Updated: 2022/12/22 14:32:53 by fialexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_findchar(char *string, char c)
 {
 	int	index;
 
-	if (string == NULL)
+	if (!string)
 		return (-1);
 	index = 0;
 	while (string[index] != '\0')
@@ -49,7 +49,7 @@ char	*ft_strjoin(char *string1, char *string2)
 	if (string1 == NULL && string2 == NULL)
 		return (NULL);
 	string_join = malloc(sizeof(char) * (ft_strlen(string1)
-				+ ft_Strlen(string2) + 1));
+				+ ft_strlen(string2) + 1));
 	if (string_join == NULL)
 		return (NULL);
 	index1 = 0;
@@ -98,6 +98,8 @@ char	*ft_substr(char *string, int start, int length)
 	int		string_length;
 	char	*sub_string;
 
+	if (start == length)
+		return (NULL); 
 	index = 0;
 	string_length = ft_strlen(string);
 	if (string_length < length)

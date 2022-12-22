@@ -6,7 +6,7 @@
 /*   By: fialexan <fialexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:14:21 by filipe            #+#    #+#             */
-/*   Updated: 2022/12/22 12:24:30 by fialexan         ###   ########.fr       */
+/*   Updated: 2022/12/22 14:35:34 by fialexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,13 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-char	*get_next_line(int fd);
+char	*find_new_line(char *str, int fd);
+
+char	*get_next_line(int file_descriptor);
+char	*get_before_nl(char *string);
+char	*get_after_nl(char *string);
+char	*ft_gnl_read(int file_descriptor);
+
 
 // Utils
 
