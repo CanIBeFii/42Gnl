@@ -6,7 +6,7 @@
 /*   By: fialexan <fialexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:14:40 by filipe            #+#    #+#             */
-/*   Updated: 2022/12/22 10:32:13 by fialexan         ###   ########.fr       */
+/*   Updated: 2022/12/22 11:23:28 by fialexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,65 +30,66 @@ int	ft_findchar(char *string, char c)
 
 int	ft_strlen(char *string)
 {
-	int	i;
+	int	index;
 
-	i = 0;
+	index = 0;
 	if (string == NULL)
 		return (0);
-	while (string[i] != '\0')
-		i++;
-	return (i);
+	while (string[index] != '\0')
+		index++;
+	return (index);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *string1, char *string2)
 {
-	int		i1;
-	int		i2;
-	char	*str;
+	int		index1;
+	int		index2;
+	char	*string_join;
 
-	if (s1 == NULL && s2 == NULL)
+	if (string1 == NULL && string2 == NULL)
 		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_Strlen(s2) + 1));
-	if (str == NULL)
+	string_join = malloc(sizeof(char) * (ft_strlen(string1)
+				+ ft_Strlen(string2) + 1));
+	if (string_join == NULL)
 		return (NULL);
-	i1 = 0;
-	i2 = 0;
-	while (s1 != NULL && s1[i1] != '\0')
+	index1 = 0;
+	index2 = 0;
+	while (string1 != NULL && string1[index1] != '\0')
 	{
-		str[i1] = s1[i1];
-		i1++;
+		string_join[index1] = string1[index1];
+		index1++;
 	}
-	while (s2 != NULL && s2[i2] != '\0')
+	while (string2 != NULL && string2[index2] != '\0')
 	{
-		str[i1 + i2] = s2[i2];
-		i2++;
+		string_join[index1 + index2] = string2[index2];
+		index2++;
 	}
-	str[i1 + i2] = '\0';
-	return (str);
+	string_join[index1 + index2] = '\0';
+	return (string_join);
 }
 
-char	*ft_strdup(char *s)
+char	*ft_strdup(char *string)
 {
 	int		index;
 	int		size;
-	char	*string;
+	char	*return_string;
 
 	index = 0;
-	size = ft_strlen(s);
+	size = ft_strlen(string);
 	if (size == 0)
 		return (NULL);
-	string = malloc(sizeof(char) * (size + 1));
-	if (string == NULL)
+	return_string = malloc(sizeof(char) * (size + 1));
+	if (return_string == NULL)
 		return (NULL);
-	if (s[0] == '\0')
+	if (string[0] == '\0')
 		return (NULL);
-	while (s[index] != '\0')
+	while (string[index] != '\0')
 	{
-		string[index] = s[index];
+		return_string[index] = string[index];
 		index++;
 	}
-	string[index] = '\0';
-	return (string);
+	return_string[index] = '\0';
+	return (return_string);
 }
 
 char	*ft_substr(char *string, int start, int length)
