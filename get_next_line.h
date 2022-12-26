@@ -6,16 +6,19 @@
 /*   By: fialexan <fialexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:14:21 by filipe            #+#    #+#             */
-/*   Updated: 2022/12/26 13:07:24 by fialexan         ###   ########.fr       */
+/*   Updated: 2022/12/26 14:58:22 by fialexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
+
 # include <unistd.h>
 # include <stdlib.h>
-
 /**
  * @brief Receives a fd (file descriptor) and returns a string with a line
  *  read (strings needs to end in '\\n' or a EOF) from it.
@@ -61,7 +64,6 @@ char	*get_after_nl(char *string);
  * @return char* 
  */
 char	*ft_gnl_read(int file_descriptor);
-
 
 // Utils
 
