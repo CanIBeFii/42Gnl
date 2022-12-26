@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fialexan <fialexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:11:43 by filipe            #+#    #+#             */
-/*   Updated: 2022/12/26 12:57:17 by fialexan         ###   ########.fr       */
+/*   Updated: 2022/12/26 13:19:49 by fialexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
@@ -37,24 +37,24 @@ char	*get_next_line(int fd)
 	return (temporary_string);
 }
 
-char	*find_new_line(char *string, int file_descriptor)
+char	*find_new_line(char *str, int fd)
 {
-	char	*temporary_string1;
-	char	*temporary_string2;
+	char	*tmp1;
+	char	*tmp2;
 
-	while (ft_findchar(string, '\n') == -1)
+	while (ft_findchar(str, '\n') == -1)
 	{
-		temporary_string1 = string;
-		temporary_string2 = ft_gnl_read(file_descriptor);
-		if (!temporary_string2)
-			return (string);
-		string = ft_strjoin(temporary_string1, temporary_string2);
-		if (temporary_string1)
-			free(temporary_string1);
-		if (temporary_string2)
-			free(temporary_string2);
+		tmp1 = str;
+		tmp2 = ft_gnl_read(fd);
+		if (!tmp2)
+			return (str);
+		str = ft_strjoin(tmp1, tmp2);
+		if (tmp1)
+			free(tmp1);
+		if (tmp2)
+			free(tmp2);
 	}
-	return (string);
+	return (str);
 }
 
 char	*get_before_nl(char *string)
